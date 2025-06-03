@@ -1,5 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { GraduationCap, BookOpen, Users, Award, TrendingUp, Star, Play, ArrowRight, CheckCircle, Menu, X, ChevronDown } from 'lucide-react';
+import {
+    GraduationCap,
+    BookOpen,
+    Users,
+    Award,
+    TrendingUp,
+    Star,
+    Play,
+    ArrowRight,
+    CheckCircle,
+    Menu,
+    X,
+    ChevronDown,
+    Facebook, Twitter, Linkedin, Instagram
+} from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Home = () => {
@@ -21,7 +35,7 @@ const Home = () => {
     };
 
     const navigateToRegister = () => {
-        navigate('/register');
+        navigate('/joinus');
     };
 
     const handleStartLearning = () => {
@@ -151,16 +165,19 @@ const Home = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
             {/* Fixed Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+            <header
+                className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <div className="flex items-center">
-                            <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3 cursor-pointer hover:opacity-80 transition-opacity">
-                                <GraduationCap size={24} className="text-white" />
+                            <div
+                                className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3 cursor-pointer hover:opacity-80 transition-opacity">
+                                <GraduationCap size={24} className="text-white"/>
                             </div>
-                            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity"
-                                  onClick={() => navigate('/')}>
+                            <span
+                                className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity"
+                                onClick={() => navigate('/')}>
                                 NovaLearn
                             </span>
                         </div>
@@ -185,8 +202,9 @@ const Home = () => {
                                         }}
                                     >
                                         {item.title}
-                                        <ChevronDown size={16} className="ml-1 transform group-hover:rotate-180 transition-transform duration-200" />
-                                    {/*</button>*/}</Link>
+                                        <ChevronDown size={16}
+                                                     className="ml-1 transform group-hover:rotate-180 transition-transform duration-200"/>
+                                        {/*</button>*/}</Link>
 
                                     {/* Dropdown Menu */}
                                     {activeDropdown === index && (
@@ -231,13 +249,14 @@ const Home = () => {
                             className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
-                            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isMobileMenuOpen ? <X size={24}/> : <Menu size={24}/>}
                         </button>
                     </div>
 
                     {/* Mobile Menu */}
                     {isMobileMenuOpen && (
-                        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
+                        <div
+                            className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
                             <div className="px-4 py-4 space-y-4">
                                 {navigationItems.map((item, index) => (
                                     <div key={index}>
@@ -287,16 +306,18 @@ const Home = () => {
                 <div className="absolute inset-0 bg-black opacity-10"></div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                        <div
+                            className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <div className="flex items-center mb-6">
                                 <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-3 mr-4">
-                                    <GraduationCap size={32} className="text-white" />
+                                    <GraduationCap size={32} className="text-white"/>
                                 </div>
                                 <span className="text-white text-lg font-medium">Premium Learning Platform</span>
                             </div>
                             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                                 Transform Your
-                                <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent w-full mt-2 pb-3">
+                                <span
+                                    className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent w-full mt-2 pb-3">
                                     Learning Journey
                                 </span>
                             </h1>
@@ -310,17 +331,21 @@ const Home = () => {
                                     className="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center">
                                     <GraduationCap size={24} className="mr-3"/>
                                     <span>{user ? 'Continue Learning' : 'Start Learning Today'}</span>
-                                    <ArrowRight size={20} className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight size={20}
+                                                className="ml-2 transform group-hover:translate-x-1 transition-transform"/>
                                 </button>
-                                <button className="group border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center">
-                                    <Play size={20} className="mr-2" />
+                                <button
+                                    className="group border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center">
+                                    <Play size={20} className="mr-2"/>
                                     <span>Watch Demo</span>
                                 </button>
                             </div>
                         </div>
-                        <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                        <div
+                            className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <div className="relative">
-                                <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
+                                <div
+                                    className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
                                     <div className="grid grid-cols-2 gap-6">
                                         {stats.map((stat, index) => (
                                             <div key={index} className="text-center">
@@ -334,8 +359,10 @@ const Home = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-80 blur-xl"></div>
-                                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60 blur-xl"></div>
+                                <div
+                                    className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-80 blur-xl"></div>
+                                <div
+                                    className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60 blur-xl"></div>
                             </div>
                         </div>
                     </div>
@@ -356,8 +383,10 @@ const Home = () => {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {features.map((feature, index) => (
-                            <div key={index} className="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
-                                <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <div key={index}
+                                 className="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
+                                <div
+                                    className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <div className="text-white">
                                         {feature.icon}
                                     </div>
@@ -387,17 +416,19 @@ const Home = () => {
                     </div>
                     <div className="grid lg:grid-cols-3 gap-8">
                         {testimonials.map((testimonial, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <div key={index}
+                                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                                 <div className="flex mb-4">
-                                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                                        <Star key={i} size={20} className="text-yellow-400 fill-current" />
+                                    {Array.from({length: testimonial.rating}).map((_, i) => (
+                                        <Star key={i} size={20} className="text-yellow-400 fill-current"/>
                                     ))}
                                 </div>
                                 <p className="text-gray-700 mb-6 leading-relaxed italic">
                                     "{testimonial.content}"
                                 </p>
                                 <div className="flex items-center">
-                                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                                    <div
+                                        className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                                         {testimonial.name.charAt(0)}
                                     </div>
                                     <div>
@@ -425,13 +456,15 @@ const Home = () => {
                         Join our community of learners and unlock your potential with our comprehensive courses
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <button className="group bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center">
-                            <BookOpen size={24} className="mr-3" />
+                        <button
+                            className="group bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center">
+                            <BookOpen size={24} className="mr-3"/>
                             <span>Browse All Courses</span>
-                            <ArrowRight size={20} className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight size={20}
+                                        className="ml-2 transform group-hover:translate-x-1 transition-transform"/>
                         </button>
                         <div className="flex items-center text-white">
-                            <CheckCircle size={20} className="mr-2 text-green-400" />
+                            <CheckCircle size={20} className="mr-2 text-green-400"/>
                             <span className="font-medium">Free 7-day trial</span>
                         </div>
                     </div>
@@ -439,63 +472,101 @@ const Home = () => {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-white py-16">
+            <footer className="bg-gray-900 text-white pt-16 pb-8">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* Company Info */}
-                        <div className="lg:col-span-2">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+                        <div className="col-span-2">
                             <div className="flex items-center mb-6">
                                 <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3">
-                                    <GraduationCap size={24} className="text-white" />
+                                    <GraduationCap size={24} className="text-white"/>
                                 </div>
                                 <span className="text-2xl font-bold">NovaLearn</span>
                             </div>
-                            <p className="text-gray-400 mb-6 leading-relaxed max-w-md">
-                                Empowering learners worldwide with cutting-edge online education.
-                                Transform your skills, advance your career, and unlock your potential.
+                            <p className="text-gray-400 mb-6 leading-relaxed">
+                                Empowering learners and educators worldwide through innovative technology and accessible
+                                education.
                             </p>
                             <div className="flex space-x-4">
-                                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer">
-                                    <span className="text-sm font-bold">f</span>
-                                </div>
-                                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors cursor-pointer">
-                                    <span className="text-sm font-bold">t</span>
-                                </div>
-                                <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-                                    <span className="text-sm font-bold">in</span>
-                                </div>
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Facebook size={20}/>
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Twitter size={20}/>
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Linkedin size={20}/>
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Instagram size={20}/>
+                                </a>
                             </div>
                         </div>
 
-                        {/* Quick Links */}
                         <div>
-                            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                            <ul className="space-y-2">
-                                <li><a href="#courses" className="text-gray-400 hover:text-white transition-colors">All Courses</a></li>
-                                <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                                <li><a href="#instructors" className="text-gray-400 hover:text-white transition-colors">Instructors</a></li>
-                                <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-                                <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                            <h4 className="text-lg font-semibold mb-6">For Learners</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Browse
+                                    Courses</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                                </li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Certifications</a>
+                                </li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Career
+                                    Services</a></li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Scholarships</a>
+                                </li>
                             </ul>
                         </div>
 
-                        {/* Support */}
                         <div>
-                            <h3 className="text-lg font-semibold mb-4">Support</h3>
-                            <ul className="space-y-2">
-                                <li><a href="#help" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-                                <li><a href="#faq" className="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-                                <li><a href="#community" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
-                                <li><a href="#privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                                <li><a href="#terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                            <h4 className="text-lg font-semibold mb-6">For Educators</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Teach on
+                                    NovaLearn</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Instructor
+                                    Resources</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Curriculum
+                                    Standards</a></li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Community</a></li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Research</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="text-lg font-semibold mb-6">Company</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About
+                                    Us</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a>
+                                </li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Leadership</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Press</a>
+                                </li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-                        <p className="text-gray-400">
-                            © 2024 NovaLearn. All rights reserved. Empowering minds, transforming futures.
+                    <div
+                        className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+                        <p className="text-gray-400 text-sm mb-4 md:mb-0">
+                            © 2023 NovaLearn, Inc. All rights reserved.
                         </p>
+                        <div className="flex space-x-6">
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy
+                                Policy</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of
+                                Service</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie
+                                Policy</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Sitemap</a>
+                        </div>
                     </div>
                 </div>
             </footer>
