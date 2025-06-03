@@ -250,7 +250,7 @@ const JoinUs = () => {
         {
             name: "Sarah Johnson",
             role: "Full-Stack Developer",
-            image: "https://images.unsplash.com/photo-1494790108755-2616b332c134?w=400&h=400&fit=crop&crop=face",
+            image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
             quote: "NovaLearn transformed my career. The quality of instruction and community support is unmatched."
         },
         {
