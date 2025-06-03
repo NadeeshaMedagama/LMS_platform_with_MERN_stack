@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     BookOpen,
     Users,
@@ -24,6 +24,14 @@ const UseCases = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoaded(true);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, []);
 
     const navigateToLogin = () => {
         navigate('/login');
@@ -236,6 +244,163 @@ const UseCases = () => {
 
     return (
         <div className="bg-white">
+            <style jsx>{`
+                @keyframes slideUpFade {
+                    from {
+                        opacity: 0;
+                        transform: translateY(60px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes slideUpFadeHero {
+                    from {
+                        opacity: 0;
+                        transform: translateY(80px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes slideUpFadeCard {
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes slideInLeft {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-50px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+
+                @keyframes slideInRight {
+                    from {
+                        opacity: 0;
+                        transform: translateX(50px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+
+                .animate-slide-up {
+                    animation: slideUpFade 0.8s ease-out forwards;
+                }
+
+                .animate-slide-up-hero {
+                    animation: slideUpFadeHero 1s ease-out forwards;
+                }
+
+                .animate-slide-up-card {
+                    animation: slideUpFadeCard 0.6s ease-out forwards;
+                }
+
+                .animate-slide-left {
+                    animation: slideInLeft 0.8s ease-out forwards;
+                }
+
+                .animate-slide-right {
+                    animation: slideInRight 0.8s ease-out forwards;
+                }
+
+                .animate-delay-1 {
+                    animation-delay: 0.1s;
+                }
+
+                .animate-delay-2 {
+                    animation-delay: 0.2s;
+                }
+
+                .animate-delay-3 {
+                    animation-delay: 0.3s;
+                }
+
+                .animate-delay-4 {
+                    animation-delay: 0.4s;
+                }
+
+                .animate-delay-5 {
+                    animation-delay: 0.5s;
+                }
+
+                .animate-delay-6 {
+                    animation-delay: 0.6s;
+                }
+
+                .animate-delay-7 {
+                    animation-delay: 0.7s;
+                }
+
+                .animate-delay-8 {
+                    animation-delay: 0.8s;
+                }
+
+                .animate-delay-9 {
+                    animation-delay: 0.9s;
+                }
+
+                .animate-delay-10 {
+                    animation-delay: 1.0s;
+                }
+
+                .animate-delay-11 {
+                    animation-delay: 1.1s;
+                }
+
+                .animate-delay-12 {
+                    animation-delay: 1.2s;
+                }
+
+                .section-animate {
+                    opacity: 0;
+                    transform: translateY(60px);
+                }
+
+                .section-animate.loaded {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+
+                .card-animate {
+                    opacity: 0;
+                    transform: translateY(40px);
+                }
+
+                .card-animate.loaded {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+
+                .hero-animate {
+                    opacity: 0;
+                    transform: translateY(80px);
+                }
+
+                .hero-animate.loaded {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+            `}</style>
             <header
                 className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -375,7 +540,7 @@ const UseCases = () => {
             <div className="relative bg-gradient-to-r from-blue-600 to-purple-700 overflow-hidden mt-12">
                 <div className="absolute inset-0 bg-black opacity-10"></div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-40">
-                    <div className="text-center pt-12">
+                    <div className={`text-center pt-12 hero-animate ${isLoaded ? 'loaded' : ''}`}>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-6 leading-tight pb-3">
                             {heroContent.title}
                         </h1>
