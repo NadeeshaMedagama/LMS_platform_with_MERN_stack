@@ -551,7 +551,7 @@ const CoursesPage = () => {
             <div className="bg-gradient-to-r from-blue-600 to-purple-700 py-24 pt-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h1 className="text-4xl lg:text-5xl font-bold block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
+                        <h1 className="text-4xl lg:text-5xl font-bold block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4 pb-2">
                             Discover Amazing Courses
                         </h1>
                         <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
@@ -744,10 +744,11 @@ const CoursesPage = () => {
             {/* Load More Button */}
             {filteredCourses.length > 0 && (
                 <div className="text-center pb-16">
-                    <button
+                    <Link
+                        to="/courses-details"
                         className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
                         Load More Courses
-                    </button>
+                    </Link>
                 </div>
             )}
 
