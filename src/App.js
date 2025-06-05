@@ -44,12 +44,13 @@ function App() {
                 <Route path="/joinus" element={<JoinUs />} />
                 <Route path="/myprofile" element={<MyProfile />} />
                 <Route path="/settings-page" element={<SettingsPage />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/courses-details" element={<CourseDetail />} />
 
                 {/* Private Routes */}
-                <Route path="/dashboard" element={<PrivateRoute />}>
-                  <Route index element={<Dashboard />} />
-                </Route>
+                {/*<Route path="/dashboard" element={<PrivateRoute />}>*/}
+                {/*  <Route index element={<Dashboard />} />*/}
+                {/*</Route>*/}
 
                 {/* Instructor Routes */}
                 <Route path="/create-course" element={<InstructorRoute />}>
