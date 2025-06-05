@@ -74,7 +74,9 @@ const Register = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         if (!validateForm()) {
             return;
         }
@@ -82,7 +84,25 @@ const Register = () => {
         setIsLoading(true);
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            const response = await fetch('http://localhost:5000/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    password: formData.password,
+                    role: formData.role
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Registration failed');
+            }
             console.log('Registration data:', formData);
             alert('Registration successful! Welcome to the LMS platform.');
         } catch (error) {
@@ -703,23 +723,24 @@ const Register = () => {
                                 <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3">
                                     <GraduationCap size={24} className="text-white"/>
                                 </div>
-                                <span className="text-2xl font-bold">NovaLearn</span>
+                                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
+                                    NovaLearn</span>
                             </div>
                             <p className="text-gray-400 mb-6 leading-relaxed">
                                 Empowering learners and educators worldwide through innovative technology and accessible
                                 education.
                             </p>
                             <div className="flex space-x-4">
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
                                     <Facebook size={20}/>
                                 </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
                                     <Twitter size={20}/>
                                 </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
                                     <Linkedin size={20}/>
                                 </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
                                     <Instagram size={20}/>
                                 </a>
                             </div>
