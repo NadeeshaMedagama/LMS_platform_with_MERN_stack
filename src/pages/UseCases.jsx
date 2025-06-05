@@ -16,6 +16,7 @@ import {
     GraduationCap, ChevronDown, X, Menu, ArrowRight, Calendar, CheckCircle, Facebook, Twitter, Linkedin, Instagram
 } from 'lucide-react';
 import {Link, useNavigate} from 'react-router-dom';
+import Header from "../components/layout/Header";
 
 const UseCases = () => {
     const [ setIsVisible] = useState(false);
@@ -401,141 +402,7 @@ const UseCases = () => {
                     transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 }
             `}</style>
-            <header
-                className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-20">
-                        {/* Logo */}
-                        <div className="flex items-center">
-                            <div
-                                className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3 cursor-pointer hover:opacity-80 transition-opacity">
-                                <GraduationCap size={24} className="text-white"/>
-                            </div>
-                            <span
-                                className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity"
-                                onClick={() => navigate('/')}>
-                                NovaLearn
-                            </span>
-                        </div>
-
-                        {/* Desktop Navigation */}
-                        <nav className="hidden lg:flex items-center space-x-8">
-                            {navigationItems.map((item, index) => (
-                                <div key={index} className="relative group">
-                                    {/*<button*/}
-                                    {/*    className="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"*/}
-                                    {/*    onMouseEnter={() => setActiveDropdown(index)}*/}
-                                    {/*    onMouseLeave={() => setActiveDropdown(null)}*/}
-                                    {/*>*/}
-                                    <Link
-                                        to={item.href}
-                                        className="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-                                        onMouseEnter={() => setActiveDropdown(index)}
-                                        onMouseLeave={() => setActiveDropdown(null)}
-                                        onClick={() => {
-                                            setIsMobileMenuOpen(false);
-                                            setActiveDropdown(null);
-                                        }}
-                                    >
-                                        {item.title}
-                                        <ChevronDown size={16}
-                                                     className="ml-1 transform group-hover:rotate-180 transition-transform duration-200"/>
-                                        {/*</button>*/}</Link>
-
-                                    {/* Dropdown Menu */}
-                                    {activeDropdown === index && (
-                                        <div
-                                            className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50"
-                                            onMouseEnter={() => setActiveDropdown(index)}
-                                            onMouseLeave={() => setActiveDropdown(null)}
-                                        >
-                                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
-                                                <Link
-                                                    key={dropdownIndex}
-                                                    href={dropdownItem.href}
-                                                    className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
-                                                >
-                                                    {dropdownItem.title}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </nav>
-
-                        {/* CTA Buttons */}
-                        <div className="hidden lg:flex items-center space-x-4">
-                            <button
-                                onClick={navigateToLogin}
-                                className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
-                            >
-                                {user ? 'Dashboard' : 'Sign In'}
-                            </button>
-                            <button
-                                onClick={navigateToRegister}
-                                className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                            >
-                                Join Us
-                            </button>
-                        </div>
-
-                        {/* Mobile Menu Button */}
-                        <button
-                            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        >
-                            {isMobileMenuOpen ? <X size={24}/> : <Menu size={24}/>}
-                        </button>
-                    </div>
-
-                    {/* Mobile Menu */}
-                    {isMobileMenuOpen && (
-                        <div
-                            className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
-                            <div className="px-4 py-4 space-y-4">
-                                {navigationItems.map((item, index) => (
-                                    <div key={index}>
-                                        <Link
-                                            to={item.href}
-                                            className="block text-gray-700 hover:text-blue-600 font-medium py-2 transition-colors duration-200"
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                        >
-                                            {item.title}
-                                        </Link>
-                                        <div className="ml-4 space-y-2">
-                                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
-                                                <Link
-                                                    key={dropdownIndex}
-                                                    href={dropdownItem.href}
-                                                    className="block text-sm text-gray-600 hover:text-blue-600 py-1 transition-colors duration-200"
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                >
-                                                    {dropdownItem.title}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
-                                <div className="pt-4 border-t border-gray-200 space-y-3">
-                                    <button
-                                        onClick={navigateToLogin}
-                                        className="block w-full text-center text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
-                                    >
-                                        {user ? 'Dashboard' : 'Sign In'}
-                                    </button>
-                                    <button
-                                        onClick={navigateToRegister}
-                                        className="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                                    >
-                                        Join Us
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </header>
+            <Header />
             {/* Hero Section */}
             <div className="relative bg-gradient-to-r from-blue-600 to-purple-700 overflow-hidden mt-12">
                 <div className="absolute inset-0 bg-black opacity-10"></div>
