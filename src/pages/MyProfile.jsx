@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
+import Header from '../components/layout/Header';
+
 import {
     User, Mail, Phone, Calendar, MapPin, Edit3, Save, X, Upload, Camera,
     GraduationCap, BookOpen, Award, TrendingUp, Star, Clock, CheckCircle,
     MessageSquare, Bell, Settings, Shield, CreditCard, Trophy, Target,
     Eye, EyeOff, Lock, Smartphone, Globe, Users, BarChart3, FileText,
     Plus, Search, Filter, ChevronRight, ChevronDown, AlertCircle,
-    Download, Share2, Info
+    Download, Share2, Info, Facebook, Twitter, Linkedin, Instagram
 } from 'lucide-react';
 
 const MyProfile = () => {
@@ -138,31 +140,14 @@ const MyProfile = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
             {/* Header */}
-            <div className="bg-white shadow-sm border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center">
-                            <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3">
-                                <GraduationCap size={24} className="text-white" />
-                            </div>
-                            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
-                                NovaLearn
-                            </span>
-                        </div>
-                        <nav className="flex space-x-6">
-                            <a href="/dashboard" className="text-gray-600 hover:text-blue-600 font-medium">Dashboard</a>
-                            <a href="/courses" className="text-gray-600 hover:text-blue-600 font-medium">Courses</a>
-                            <a href="/profile" className="text-blue-600 font-medium">Profile</a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+            <Header />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-16">
                 {/* Profile Header */}
                 <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
                     <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-12">
-                        <div className="flex flex-col md:flex-row items-center md:items-end space-y-4 md:space-y-0 md:space-x-6">
+                        <div
+                            className="flex flex-col md:flex-row items-center md:items-end space-y-4 md:space-y-0 md:space-x-6">
                             <div className="relative">
                                 <div className="w-32 h-32 rounded-full bg-white p-1 shadow-lg">
                                     {(isEditing ? editedUser.profilePicture : user.profilePicture) ? (
@@ -172,7 +157,8 @@ const MyProfile = () => {
                                             className="w-full h-full rounded-full object-cover"
                                         />
                                     ) : (
-                                        <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-3xl font-bold">
+                                        <div
+                                            className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-3xl font-bold">
                                             {getUserInitials(user.name)}
                                         </div>
                                     )}
@@ -182,7 +168,7 @@ const MyProfile = () => {
                                         onClick={() => fileInputRef.current?.click()}
                                         className="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors shadow-lg"
                                     >
-                                        <Camera size={16} />
+                                        <Camera size={16}/>
                                     </button>
                                 )}
                                 <input
@@ -196,7 +182,11 @@ const MyProfile = () => {
                             <div className="text-center md:text-left flex-1">
                                 <h1 className="text-3xl font-bold text-white mb-2">{user.name}</h1>
                                 <p className="text-blue-100 text-lg mb-1">@{user.username}</p>
-                                <p className="text-blue-200 mb-4">{user.role} • Member since {new Date(user.joinDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+                                <p className="text-blue-200 mb-4">{user.role} • Member
+                                    since {new Date(user.joinDate).toLocaleDateString('en-US', {
+                                        month: 'long',
+                                        year: 'numeric'
+                                    })}</p>
                                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                                     <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-4 py-2">
                                         <div className="text-white font-semibold">{enrolledCourses.length}</div>
@@ -218,7 +208,7 @@ const MyProfile = () => {
                                         onClick={() => setIsEditing(true)}
                                         className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors flex items-center space-x-2"
                                     >
-                                        <Edit3 size={18} />
+                                        <Edit3 size={18}/>
                                         <span>Edit Profile</span>
                                     </button>
                                 ) : (
@@ -227,14 +217,14 @@ const MyProfile = () => {
                                             onClick={handleSaveProfile}
                                             className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors flex items-center space-x-2"
                                         >
-                                            <Save size={18} />
+                                            <Save size={18}/>
                                             <span>Save</span>
                                         </button>
                                         <button
                                             onClick={handleCancelEdit}
                                             className="bg-gray-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors flex items-center space-x-2"
                                         >
-                                            <X size={18} />
+                                            <X size={18}/>
                                             <span>Cancel</span>
                                         </button>
                                     </div>
@@ -272,17 +262,21 @@ const MyProfile = () => {
                                 {/* Basic Information */}
                                 <div>
                                     <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-                                        <User className="mr-2 text-blue-600" size={24} />
+                                        <User className="mr-2 text-blue-600" size={24}/>
                                         Basic Information
                                     </h3>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">Full
+                                                Name</label>
                                             {isEditing ? (
                                                 <input
                                                     type="text"
                                                     value={editedUser.name}
-                                                    onChange={(e) => setEditedUser({ ...editedUser, name: e.target.value })}
+                                                    onChange={(e) => setEditedUser({
+                                                        ...editedUser,
+                                                        name: e.target.value
+                                                    })}
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 />
                                             ) : (
@@ -290,12 +284,16 @@ const MyProfile = () => {
                                             )}
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                                            <label
+                                                className="block text-sm font-medium text-gray-700 mb-2">Username</label>
                                             {isEditing ? (
                                                 <input
                                                     type="text"
                                                     value={editedUser.username}
-                                                    onChange={(e) => setEditedUser({ ...editedUser, username: e.target.value })}
+                                                    onChange={(e) => setEditedUser({
+                                                        ...editedUser,
+                                                        username: e.target.value
+                                                    })}
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 />
                                             ) : (
@@ -303,59 +301,75 @@ const MyProfile = () => {
                                             )}
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">Email
+                                                Address</label>
                                             {isEditing ? (
                                                 <input
                                                     type="email"
                                                     value={editedUser.email}
-                                                    onChange={(e) => setEditedUser({ ...editedUser, email: e.target.value })}
+                                                    onChange={(e) => setEditedUser({
+                                                        ...editedUser,
+                                                        email: e.target.value
+                                                    })}
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 />
                                             ) : (
                                                 <p className="px-4 py-3 bg-gray-50 rounded-lg text-gray-900 flex items-center">
-                                                    <Mail size={16} className="mr-2 text-gray-500" />
+                                                    <Mail size={16} className="mr-2 text-gray-500"/>
                                                     {user.email}
                                                 </p>
                                             )}
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Contact Number</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">Contact
+                                                Number</label>
                                             {isEditing ? (
                                                 <input
                                                     type="tel"
                                                     value={editedUser.phone}
-                                                    onChange={(e) => setEditedUser({ ...editedUser, phone: e.target.value })}
+                                                    onChange={(e) => setEditedUser({
+                                                        ...editedUser,
+                                                        phone: e.target.value
+                                                    })}
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 />
                                             ) : (
                                                 <p className="px-4 py-3 bg-gray-50 rounded-lg text-gray-900 flex items-center">
-                                                    <Phone size={16} className="mr-2 text-gray-500" />
+                                                    <Phone size={16} className="mr-2 text-gray-500"/>
                                                     {user.phone}
                                                 </p>
                                             )}
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Date of Birth</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">Date of
+                                                Birth</label>
                                             {isEditing ? (
                                                 <input
                                                     type="date"
                                                     value={editedUser.dateOfBirth}
-                                                    onChange={(e) => setEditedUser({ ...editedUser, dateOfBirth: e.target.value })}
+                                                    onChange={(e) => setEditedUser({
+                                                        ...editedUser,
+                                                        dateOfBirth: e.target.value
+                                                    })}
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 />
                                             ) : (
                                                 <p className="px-4 py-3 bg-gray-50 rounded-lg text-gray-900 flex items-center">
-                                                    <Calendar size={16} className="mr-2 text-gray-500" />
+                                                    <Calendar size={16} className="mr-2 text-gray-500"/>
                                                     {new Date(user.dateOfBirth).toLocaleDateString()}
                                                 </p>
                                             )}
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                                            <label
+                                                className="block text-sm font-medium text-gray-700 mb-2">Gender</label>
                                             {isEditing ? (
                                                 <select
                                                     value={editedUser.gender}
-                                                    onChange={(e) => setEditedUser({ ...editedUser, gender: e.target.value })}
+                                                    onChange={(e) => setEditedUser({
+                                                        ...editedUser,
+                                                        gender: e.target.value
+                                                    })}
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 >
                                                     <option value="Male">Male</option>
@@ -368,17 +382,21 @@ const MyProfile = () => {
                                             )}
                                         </div>
                                         <div className="md:col-span-2">
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Address</label>
+                                            <label
+                                                className="block text-sm font-medium text-gray-700 mb-2">Address</label>
                                             {isEditing ? (
                                                 <textarea
                                                     value={editedUser.address}
-                                                    onChange={(e) => setEditedUser({ ...editedUser, address: e.target.value })}
+                                                    onChange={(e) => setEditedUser({
+                                                        ...editedUser,
+                                                        address: e.target.value
+                                                    })}
                                                     rows={3}
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 />
                                             ) : (
                                                 <p className="px-4 py-3 bg-gray-50 rounded-lg text-gray-900 flex items-start">
-                                                    <MapPin size={16} className="mr-2 text-gray-500 mt-0.5" />
+                                                    <MapPin size={16} className="mr-2 text-gray-500 mt-0.5"/>
                                                     {user.address}
                                                 </p>
                                             )}
@@ -389,7 +407,7 @@ const MyProfile = () => {
                                 {/* Academic Information */}
                                 <div>
                                     <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-                                        <GraduationCap className="mr-2 text-blue-600" size={24} />
+                                        <GraduationCap className="mr-2 text-blue-600" size={24}/>
                                         Academic Information
                                     </h3>
                                     <div className="grid md:grid-cols-2 gap-6">
@@ -402,14 +420,16 @@ const MyProfile = () => {
                                         <div>
                                             <label className="block text-sm font-medium text-gray-700 mb-2">Role</label>
                                             <p className="px-4 py-3 bg-gray-50 rounded-lg text-gray-900">
-                                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                                <span
+                                                    className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                                                     {user.role}
                                                 </span>
                                             </p>
                                         </div>
                                         {user.role === 'Student' && (
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Enrollment Number</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">Enrollment
+                                                    Number</label>
                                                 <p className="px-4 py-3 bg-gray-50 rounded-lg text-gray-900 font-mono">{user.enrollmentNumber}</p>
                                             </div>
                                         )}
@@ -419,24 +439,32 @@ const MyProfile = () => {
                                 {/* Quick Stats */}
                                 <div>
                                     <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-                                        <TrendingUp className="mr-2 text-blue-600" size={24} />
+                                        <TrendingUp className="mr-2 text-blue-600" size={24}/>
                                         Quick Stats
                                     </h3>
                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                        <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 text-center">
-                                            <div className="text-2xl font-bold text-blue-600 mb-1">{enrolledCourses.length}</div>
+                                        <div
+                                            className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 text-center">
+                                            <div
+                                                className="text-2xl font-bold text-blue-600 mb-1">{enrolledCourses.length}</div>
                                             <div className="text-sm text-blue-700">Enrolled Courses</div>
                                         </div>
-                                        <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 text-center">
-                                            <div className="text-2xl font-bold text-green-600 mb-1">{enrolledCourses.filter(c => c.status === 'Completed').length}</div>
+                                        <div
+                                            className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 text-center">
+                                            <div
+                                                className="text-2xl font-bold text-green-600 mb-1">{enrolledCourses.filter(c => c.status === 'Completed').length}</div>
                                             <div className="text-sm text-green-700">Completed</div>
                                         </div>
-                                        <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg p-4 text-center">
-                                            <div className="text-2xl font-bold text-yellow-600 mb-1">{certificates.length}</div>
+                                        <div
+                                            className="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg p-4 text-center">
+                                            <div
+                                                className="text-2xl font-bold text-yellow-600 mb-1">{certificates.length}</div>
                                             <div className="text-sm text-yellow-700">Certificates</div>
                                         </div>
-                                        <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-4 text-center">
-                                            <div className="text-2xl font-bold text-purple-600 mb-1">{gamificationData.streak}</div>
+                                        <div
+                                            className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-4 text-center">
+                                            <div
+                                                className="text-2xl font-bold text-purple-600 mb-1">{gamificationData.streak}</div>
                                             <div className="text-sm text-purple-700">Day Streak</div>
                                         </div>
                                     </div>
@@ -446,19 +474,22 @@ const MyProfile = () => {
 
                         {activeTab === 'courses' && (
                             <div className="space-y-6">
-                                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                <div
+                                    className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                                     <h3 className="text-xl font-semibold text-gray-900">My Courses</h3>
                                     <div className="flex space-x-3">
                                         <div className="relative">
-                                            <Search size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                                            <Search size={20}
+                                                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"/>
                                             <input
                                                 type="text"
                                                 placeholder="Search courses..."
                                                 className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                             />
                                         </div>
-                                        <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                                            <Filter size={20} />
+                                        <button
+                                            className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                                            <Filter size={20}/>
                                             <span>Filter</span>
                                         </button>
                                     </div>
@@ -466,8 +497,10 @@ const MyProfile = () => {
 
                                 <div className="grid gap-6">
                                     {enrolledCourses.map((course) => (
-                                        <div key={course.id} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                                            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                                        <div key={course.id}
+                                             className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                                            <div
+                                                className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                                                 <div>
                                                     <h4 className="text-lg font-semibold text-gray-900 mb-2">{course.title}</h4>
                                                     <p className="text-gray-600">Instructor: {course.instructor}</p>
@@ -482,19 +515,21 @@ const MyProfile = () => {
                                                         {course.status}
                                                     </span>
                                                     {course.grade && (
-                                                        <span className="text-lg font-bold text-gray-900">{course.grade}</span>
+                                                        <span
+                                                            className="text-lg font-bold text-gray-900">{course.grade}</span>
                                                     )}
                                                 </div>
                                             </div>
                                             <div className="mb-4">
                                                 <div className="flex justify-between items-center mb-2">
                                                     <span className="text-sm font-medium text-gray-700">Progress</span>
-                                                    <span className="text-sm font-medium text-gray-900">{course.progress}%</span>
+                                                    <span
+                                                        className="text-sm font-medium text-gray-900">{course.progress}%</span>
                                                 </div>
                                                 <div className="w-full bg-gray-200 rounded-full h-2">
                                                     <div
                                                         className={`h-2 rounded-full ${getProgressColor(course.progress)}`}
-                                                        style={{ width: `${course.progress}%` }}
+                                                        style={{width: `${course.progress}%`}}
                                                     ></div>
                                                 </div>
                                             </div>
@@ -502,7 +537,7 @@ const MyProfile = () => {
                                                 <button className="text-blue-600 hover:text-blue-700 font-medium">
                                                     {course.status === 'Completed' ? 'View Certificate' : 'Continue Learning'}
                                                 </button>
-                                                <ChevronRight size={20} className="text-gray-400" />
+                                                <ChevronRight size={20} className="text-gray-400"/>
                                             </div>
                                         </div>
                                     ))}
@@ -515,12 +550,14 @@ const MyProfile = () => {
                                 <h3 className="text-xl font-semibold text-gray-900">My Certificates</h3>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {certificates.map((cert) => (
-                                        <div key={cert.id} className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-6">
+                                        <div key={cert.id}
+                                             className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-6">
                                             <div className="flex items-start justify-between mb-4">
                                                 <div>
                                                     <h4 className="text-lg font-semibold text-gray-900 mb-2">{cert.title}</h4>
                                                     <p className="text-gray-600">Issued: {new Date(cert.issueDate).toLocaleDateString()}</p>
-                                                    <p className="text-gray-600">Valid until: {new Date(cert.validUntil).toLocaleDateString()}</p>
+                                                    <p className="text-gray-600">Valid
+                                                        until: {new Date(cert.validUntil).toLocaleDateString()}</p>
                                                 </div>
                                                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                                                     cert.status === 'Valid' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
@@ -529,12 +566,14 @@ const MyProfile = () => {
                                                 </span>
                                             </div>
                                             <div className="flex justify-between items-center">
-                                                <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center space-x-2">
-                                                    <Download size={18} />
+                                                <button
+                                                    className="text-blue-600 hover:text-blue-700 font-medium flex items-center space-x-2">
+                                                    <Download size={18}/>
                                                     <span>Download PDF</span>
                                                 </button>
-                                                <button className="text-gray-600 hover:text-gray-700 font-medium flex items-center space-x-2">
-                                                    <Share2 size={18} />
+                                                <button
+                                                    className="text-gray-600 hover:text-gray-700 font-medium flex items-center space-x-2">
+                                                    <Share2 size={18}/>
                                                     <span>Share</span>
                                                 </button>
                                             </div>
@@ -549,7 +588,8 @@ const MyProfile = () => {
                                 <h3 className="text-xl font-semibold text-gray-900">Recent Activity</h3>
                                 <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
                                     {recentActivity.map((activity) => (
-                                        <div key={activity.id} className="p-6 border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors">
+                                        <div key={activity.id}
+                                             className="p-6 border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors">
                                             <div className="flex items-start">
                                                 <div className="mr-4 mt-1">
                                                     {activity.icon}
@@ -563,7 +603,7 @@ const MyProfile = () => {
                                                         minute: '2-digit'
                                                     })}</p>
                                                 </div>
-                                                <ChevronRight size={20} className="text-gray-400" />
+                                                <ChevronRight size={20} className="text-gray-400"/>
                                             </div>
                                         </div>
                                     ))}
@@ -593,9 +633,9 @@ const MyProfile = () => {
                                                         notification.type === 'update' ? 'text-blue-500' :
                                                             'text-yellow-500'
                                                 }`}>
-                                                    {notification.type === 'deadline' ? <AlertCircle size={20} /> :
-                                                        notification.type === 'update' ? <Info size={20} /> :
-                                                            <Award size={20} />}
+                                                    {notification.type === 'deadline' ? <AlertCircle size={20}/> :
+                                                        notification.type === 'update' ? <Info size={20}/> :
+                                                            <Award size={20}/>}
                                                 </div>
                                                 <div className="flex-1">
                                                     <h4 className={`font-medium mb-1 ${
@@ -625,12 +665,15 @@ const MyProfile = () => {
                                         <div className="flex items-center justify-between">
                                             <div>
                                                 <p className="font-medium text-gray-900">Dark Mode</p>
-                                                <p className="text-sm text-gray-500">Switch between light and dark theme</p>
+                                                <p className="text-sm text-gray-500">Switch between light and dark
+                                                    theme</p>
                                             </div>
                                             <div className="relative inline-block w-12 mr-2 align-middle select-none">
-                                                <input type="checkbox" id="dark-mode" className="sr-only" />
-                                                <label htmlFor="dark-mode" className="block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer">
-                                                    <span className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out"></span>
+                                                <input type="checkbox" id="dark-mode" className="sr-only"/>
+                                                <label htmlFor="dark-mode"
+                                                       className="block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer">
+                                                    <span
+                                                        className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out"></span>
                                                 </label>
                                             </div>
                                         </div>
@@ -640,9 +683,12 @@ const MyProfile = () => {
                                                 <p className="text-sm text-gray-500">Receive email notifications</p>
                                             </div>
                                             <div className="relative inline-block w-12 mr-2 align-middle select-none">
-                                                <input type="checkbox" id="email-notifications" className="sr-only" checked />
-                                                <label htmlFor="email-notifications" className="block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer">
-                                                    <span className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out translate-x-6"></span>
+                                                <input type="checkbox" id="email-notifications" className="sr-only"
+                                                       checked/>
+                                                <label htmlFor="email-notifications"
+                                                       className="block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer">
+                                                    <span
+                                                        className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out translate-x-6"></span>
                                                 </label>
                                             </div>
                                         </div>
@@ -652,9 +698,12 @@ const MyProfile = () => {
                                                 <p className="text-sm text-gray-500">Receive push notifications</p>
                                             </div>
                                             <div className="relative inline-block w-12 mr-2 align-middle select-none">
-                                                <input type="checkbox" id="push-notifications" className="sr-only" checked />
-                                                <label htmlFor="push-notifications" className="block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer">
-                                                    <span className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out translate-x-6"></span>
+                                                <input type="checkbox" id="push-notifications" className="sr-only"
+                                                       checked/>
+                                                <label htmlFor="push-notifications"
+                                                       className="block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer">
+                                                    <span
+                                                        className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out translate-x-6"></span>
                                                 </label>
                                             </div>
                                         </div>
@@ -665,8 +714,10 @@ const MyProfile = () => {
                                     <h4 className="text-lg font-medium text-gray-900 mb-4">Language & Region</h4>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Language</label>
-                                            <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                            <label
+                                                className="block text-sm font-medium text-gray-700 mb-2">Language</label>
+                                            <select
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                                 <option>English</option>
                                                 <option>Spanish</option>
                                                 <option>French</option>
@@ -674,8 +725,10 @@ const MyProfile = () => {
                                             </select>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Time Zone</label>
-                                            <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">Time
+                                                Zone</label>
+                                            <select
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                                 <option>(GMT-05:00) Eastern Time</option>
                                                 <option>(GMT-06:00) Central Time</option>
                                                 <option>(GMT-07:00) Mountain Time</option>
@@ -710,29 +763,36 @@ const MyProfile = () => {
                                 </div>
 
                                 <div className="bg-white border border-gray-200 rounded-xl p-6">
-                                    <h4 className="text-lg font-medium text-gray-900 mb-6">Two-Factor Authentication</h4>
+                                    <h4 className="text-lg font-medium text-gray-900 mb-6">Two-Factor
+                                        Authentication</h4>
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
                                             <div>
                                                 <p className="font-medium text-gray-900">SMS Authentication</p>
-                                                <p className="text-sm text-gray-500">Use your phone number to verify your identity</p>
+                                                <p className="text-sm text-gray-500">Use your phone number to verify
+                                                    your identity</p>
                                             </div>
                                             <div className="relative inline-block w-12 mr-2 align-middle select-none">
-                                                <input type="checkbox" id="sms-auth" className="sr-only" />
-                                                <label htmlFor="sms-auth" className="block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer">
-                                                    <span className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out"></span>
+                                                <input type="checkbox" id="sms-auth" className="sr-only"/>
+                                                <label htmlFor="sms-auth"
+                                                       className="block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer">
+                                                    <span
+                                                        className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out"></span>
                                                 </label>
                                             </div>
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <div>
                                                 <p className="font-medium text-gray-900">Authenticator App</p>
-                                                <p className="text-sm text-gray-500">Use an authenticator app for verification</p>
+                                                <p className="text-sm text-gray-500">Use an authenticator app for
+                                                    verification</p>
                                             </div>
                                             <div className="relative inline-block w-12 mr-2 align-middle select-none">
-                                                <input type="checkbox" id="app-auth" className="sr-only" checked />
-                                                <label htmlFor="app-auth" className="block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer">
-                                                    <span className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out translate-x-6"></span>
+                                                <input type="checkbox" id="app-auth" className="sr-only" checked/>
+                                                <label htmlFor="app-auth"
+                                                       className="block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer">
+                                                    <span
+                                                        className="block h-6 w-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in-out translate-x-6"></span>
                                                 </label>
                                             </div>
                                         </div>
@@ -744,10 +804,11 @@ const MyProfile = () => {
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
                                             <div className="flex items-center">
-                                                <Smartphone size={24} className="text-gray-500 mr-4" />
+                                                <Smartphone size={24} className="text-gray-500 mr-4"/>
                                                 <div>
                                                     <p className="font-medium text-gray-900">iPhone 13 Pro</p>
-                                                    <p className="text-sm text-gray-500">New York, USA • Last active 2 hours ago</p>
+                                                    <p className="text-sm text-gray-500">New York, USA • Last active 2
+                                                        hours ago</p>
                                                 </div>
                                             </div>
                                             <button className="text-red-600 hover:text-red-700 font-medium">
@@ -756,10 +817,11 @@ const MyProfile = () => {
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <div className="flex items-center">
-                                                <Globe size={24} className="text-gray-500 mr-4" />
+                                                <Globe size={24} className="text-gray-500 mr-4"/>
                                                 <div>
                                                     <p className="font-medium text-gray-900">Chrome on Windows</p>
-                                                    <p className="text-sm text-gray-500">San Francisco, USA • Last active 1 day ago</p>
+                                                    <p className="text-sm text-gray-500">San Francisco, USA • Last
+                                                        active 1 day ago</p>
                                                 </div>
                                             </div>
                                             <button className="text-red-600 hover:text-red-700 font-medium">
@@ -778,9 +840,10 @@ const MyProfile = () => {
                                 <div className="bg-white border border-gray-200 rounded-xl p-6">
                                     <h4 className="text-lg font-medium text-gray-900 mb-6">Payment Methods</h4>
                                     <div className="space-y-4">
-                                        <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                        <div
+                                            className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                                             <div className="flex items-center">
-                                                <CreditCard size={24} className="text-gray-500 mr-4" />
+                                                <CreditCard size={24} className="text-gray-500 mr-4"/>
                                                 <div>
                                                     <p className="font-medium text-gray-900">Visa ending in 4242</p>
                                                     <p className="text-sm text-gray-500">Expires 04/2025</p>
@@ -790,8 +853,9 @@ const MyProfile = () => {
                                                 Remove
                                             </button>
                                         </div>
-                                        <button className="flex items-center text-blue-600 hover:text-blue-700 font-medium mt-4">
-                                            <Plus size={18} className="mr-2" />
+                                        <button
+                                            className="flex items-center text-blue-600 hover:text-blue-700 font-medium mt-4">
+                                            <Plus size={18} className="mr-2"/>
                                             Add Payment Method
                                         </button>
                                     </div>
@@ -803,31 +867,51 @@ const MyProfile = () => {
                                         <table className="min-w-full divide-y divide-gray-200">
                                             <thead className="bg-gray-50">
                                             <tr>
-                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice</th>
+                                                <th scope="col"
+                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date
+                                                </th>
+                                                <th scope="col"
+                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description
+                                                </th>
+                                                <th scope="col"
+                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount
+                                                </th>
+                                                <th scope="col"
+                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status
+                                                </th>
+                                                <th scope="col"
+                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice
+                                                </th>
                                             </tr>
                                             </thead>
                                             <tbody className="bg-white divide-y divide-gray-200">
                                             <tr>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 15, 2024</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Premium Subscription</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May
+                                                    15, 2024
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Premium
+                                                    Subscription
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$99.00</td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Paid</span>
+                                                    <span
+                                                        className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Paid</span>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600 hover:text-blue-700">
                                                     <a href="#">Download</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">April 15, 2024</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Premium Subscription</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">April
+                                                    15, 2024
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Premium
+                                                    Subscription
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$99.00</td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Paid</span>
+                                                    <span
+                                                        className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Paid</span>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600 hover:text-blue-700">
                                                     <a href="#">Download</a>
@@ -853,7 +937,7 @@ const MyProfile = () => {
                                 onClick={() => setShowPasswordModal(false)}
                                 className="text-gray-500 hover:text-gray-700"
                             >
-                                <X size={24} />
+                                <X size={24}/>
                             </button>
                         </div>
                         <div className="space-y-4">
@@ -863,14 +947,20 @@ const MyProfile = () => {
                                     <input
                                         type={showPassword.current ? "text" : "password"}
                                         value={passwordData.currentPassword}
-                                        onChange={(e) => setPasswordData({...passwordData, currentPassword: e.target.value})}
+                                        onChange={(e) => setPasswordData({
+                                            ...passwordData,
+                                            currentPassword: e.target.value
+                                        })}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     />
                                     <button
-                                        onClick={() => setShowPassword({...showPassword, current: !showPassword.current})}
+                                        onClick={() => setShowPassword({
+                                            ...showPassword,
+                                            current: !showPassword.current
+                                        })}
                                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                                     >
-                                        {showPassword.current ? <EyeOff size={18} /> : <Eye size={18} />}
+                                        {showPassword.current ? <EyeOff size={18}/> : <Eye size={18}/>}
                                     </button>
                                 </div>
                             </div>
@@ -880,31 +970,41 @@ const MyProfile = () => {
                                     <input
                                         type={showPassword.new ? "text" : "password"}
                                         value={passwordData.newPassword}
-                                        onChange={(e) => setPasswordData({...passwordData, newPassword: e.target.value})}
+                                        onChange={(e) => setPasswordData({
+                                            ...passwordData,
+                                            newPassword: e.target.value
+                                        })}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     />
                                     <button
                                         onClick={() => setShowPassword({...showPassword, new: !showPassword.new})}
                                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                                     >
-                                        {showPassword.new ? <EyeOff size={18} /> : <Eye size={18} />}
+                                        {showPassword.new ? <EyeOff size={18}/> : <Eye size={18}/>}
                                     </button>
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Confirm New
+                                    Password</label>
                                 <div className="relative">
                                     <input
                                         type={showPassword.confirm ? "text" : "password"}
                                         value={passwordData.confirmPassword}
-                                        onChange={(e) => setPasswordData({...passwordData, confirmPassword: e.target.value})}
+                                        onChange={(e) => setPasswordData({
+                                            ...passwordData,
+                                            confirmPassword: e.target.value
+                                        })}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     />
                                     <button
-                                        onClick={() => setShowPassword({...showPassword, confirm: !showPassword.confirm})}
+                                        onClick={() => setShowPassword({
+                                            ...showPassword,
+                                            confirm: !showPassword.confirm
+                                        })}
                                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                                     >
-                                        {showPassword.confirm ? <EyeOff size={18} /> : <Eye size={18} />}
+                                        {showPassword.confirm ? <EyeOff size={18}/> : <Eye size={18}/>}
                                     </button>
                                 </div>
                             </div>
@@ -920,6 +1020,110 @@ const MyProfile = () => {
                     </div>
                 </div>
             )}
+            <footer className="bg-gray-900 text-white pt-16 pb-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+                        <div className="col-span-2">
+                            <div className="flex items-center mb-6">
+                                <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3">
+                                    <GraduationCap size={24} className="text-white"/>
+                                </div>
+                                <span
+                                    className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
+                                    NovaLearn</span>
+                            </div>
+                            <p className="text-gray-400 mb-6 leading-relaxed">
+                                Empowering learners and educators worldwide through innovative technology and accessible
+                                education.
+                            </p>
+                            <div className="flex space-x-4">
+                                <a href="#"
+                                   className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                                    <Facebook size={20}/>
+                                </a>
+                                <a href="#"
+                                   className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                                    <Twitter size={20}/>
+                                </a>
+                                <a href="#"
+                                   className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                                    <Linkedin size={20}/>
+                                </a>
+                                <a href="#"
+                                   className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                                    <Instagram size={20}/>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="text-lg font-semibold mb-6">For Learners</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Browse
+                                    Courses</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                                </li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Certifications</a>
+                                </li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Career
+                                    Services</a></li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Scholarships</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="text-lg font-semibold mb-6">For Educators</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Teach on
+                                    NovaLearn</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Instructor
+                                    Resources</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Curriculum
+                                    Standards</a></li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Community</a></li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Research</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="text-lg font-semibold mb-6">Company</h4>
+                            <ul className="space-y-3">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About
+                                    Us</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a>
+                                </li>
+                                <li><a href="#"
+                                       className="text-gray-400 hover:text-white transition-colors">Leadership</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Press</a>
+                                </li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+                        <p className="text-gray-400 text-sm mb-4 md:mb-0">
+                            © 2023 NovaLearn, Inc. All rights reserved.
+                        </p>
+                        <div className="flex space-x-6">
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy
+                                Policy</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of
+                                Service</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie
+                                Policy</a>
+                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };
