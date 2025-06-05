@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Footer from '../components/layout/Footer';
 import {
     GraduationCap,
     User,
@@ -1154,6 +1155,7 @@ const SettingsPage = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
