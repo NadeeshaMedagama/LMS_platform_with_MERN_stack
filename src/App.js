@@ -7,7 +7,6 @@ import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import theme from './theme';
-import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -23,6 +22,7 @@ import UseCases from './pages/UseCases';
 import Pricing from './pages/Pricing';
 import Resources from './pages/Resources';
 import JoinUs from "./pages/JoinUs";
+import MyProfile from "./pages/MyProfile";
 
 function App() {
   return (
@@ -31,7 +31,6 @@ function App() {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <Router>
-              <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
@@ -42,7 +41,8 @@ function App() {
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/joinus" element={<JoinUs />} />
-                <Route path="/courses/:id" element={<CourseDetail />} />
+                <Route path="/myprofile" element={<MyProfile />} />
+                <Route path="/courses-details" element={<CourseDetail />} />
 
                 {/* Private Routes */}
                 <Route path="/dashboard" element={<PrivateRoute />}>
