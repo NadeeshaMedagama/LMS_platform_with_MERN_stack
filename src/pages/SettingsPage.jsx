@@ -34,6 +34,7 @@ import {
     Minus,
     Info
 } from 'lucide-react';
+import Header from "../components/layout/Header";
 
 const SettingsPage = () => {
     // User data (would typically come from database/API)
@@ -179,7 +180,8 @@ const SettingsPage = () => {
     };
 
     const renderProfileSettings = () => (
-        <div className="space-y-6">
+        <div className="pt-16">
+            <Header />
             {/* Profile Header */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-white">
                 <div className="flex items-center space-x-6">
