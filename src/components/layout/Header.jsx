@@ -127,7 +127,7 @@ const Header = () => {
                         </div>
                         <span
                             className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity"
-                        onClick={() => navigate('/')}>
+                            onClick={() => navigate('/')}>
                             NovaLearn
             </span>
                     </div>
@@ -261,7 +261,7 @@ const Header = () => {
                                                     <span>My Profile</span>
                                                 </a>
                                                 <a
-                                                    href="/settings"
+                                                    href="/settings-page"
                                                     className="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
                                                 >
                                                     <Settings size={18} className="mr-3"/>
@@ -289,14 +289,20 @@ const Header = () => {
                                 >
                                     Sign In
                                 </button>
-                                <button
-                                    onClick={navigateToRegister}
-                                    className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                                >
-                                    Join Us
-                                </button>
+                                {/*<button*/}
+                                {/*    onClick={navigateToRegister}*/}
+                                {/*    className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"*/}
+                                {/*>*/}
+                                {/*    Join Us*/}
+                                {/*</button>*/}
                             </>
                         )}
+                        <button
+                            onClick={navigateToRegister}
+                            className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                        >
+                            Join Us
+                        </button>
                     </div>
 
                     {/* Mobile Menu Button */}
