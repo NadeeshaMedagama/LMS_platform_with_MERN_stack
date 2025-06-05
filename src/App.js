@@ -23,6 +23,7 @@ import Pricing from './pages/Pricing';
 import Resources from './pages/Resources';
 import JoinUs from "./pages/JoinUs";
 import MyProfile from "./pages/MyProfile";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/joinus" element={<JoinUs />} />
                 <Route path="/myprofile" element={<MyProfile />} />
+                <Route path="/settings-page" element={<SettingsPage />} />
                 <Route path="/courses-details" element={<CourseDetail />} />
 
                 {/* Private Routes */}
