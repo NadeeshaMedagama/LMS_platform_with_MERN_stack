@@ -200,6 +200,7 @@ const JoinUs = () => {
         }
 
         setIsSubmitting(true);
+        setSubmitStatus(null); // Reset submit status before new submission
 
         try {
             const formDataToSend = new FormData();
@@ -223,22 +224,28 @@ const JoinUs = () => {
                 // headers not needed when using FormData
             });
 
+            const responseData = await response.json();
+
             if (!response.ok) {
-                throw new Error('Submission failed');
+                throw new Error(responseData.error || 'Submission failed');
             }
 
-            setSubmitStatus('success');
-            setFormData({
-                fullName: '',
-                email: '',
-                phone: '',
-                address: '',
-                userRole: '',
-                message: '',
-                cv: null,
-                agreeToTerms: false,
-                newsletter: false
-            });
+            if (responseData.isDuplicate) {
+                setSubmitStatus('duplicate');
+            } else {
+                setSubmitStatus('success');
+                setFormData({
+                    fullName: '',
+                    email: '',
+                    phone: '',
+                    address: '',
+                    userRole: '',
+                    message: '',
+                    cv: null,
+                    agreeToTerms: false,
+                    newsletter: false
+                });
+            }
         } catch (error) {
             setSubmitStatus('error');
         } finally {
@@ -290,6 +297,32 @@ const JoinUs = () => {
         }
     ];
 
+    if (submitStatus === 'duplicate') {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 flex items-center justify-center px-4">
+                <div className="max-w-2xl mx-auto text-center">
+                    <div className="bg-white rounded-3xl shadow-2xl p-12 border border-blue-100">
+                        <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
+                            <CheckCircle size={40} className="text-white" />
+                        </div>
+                        <h1 className="text-4xl font-bold text-gray-900 mb-6">Application Received</h1>
+                        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                            We already have your application on file. Our team will get back to you soon.
+                        </p>
+                        <button
+                            onClick={() => {setSubmitStatus(null);
+                                setIsSubmitting(false);
+                        }}
+                            className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                        >
+                            Submit Another Application
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     if (submitStatus === 'success') {
         return (
             <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 flex items-center justify-center px-4">
@@ -320,7 +353,9 @@ const JoinUs = () => {
                             </ul>
                         </div>
                         <button
-                            onClick={() => setSubmitStatus(null)}
+                            onClick={() => {setSubmitStatus(null);
+                                setIsSubmitting(false);
+                            }}
                             className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                         >
                             Submit Another Application
