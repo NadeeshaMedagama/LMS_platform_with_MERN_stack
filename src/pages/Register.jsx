@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Eye,
     EyeOff,
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react';
 
 const Register = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -105,6 +107,8 @@ const Register = () => {
             }
             console.log('Registration data:', formData);
             alert('Registration successful! Welcome to the LMS platform.');
+            navigate('/login');
+
         } catch (error) {
             console.error('Registration failed:', error);
         } finally {
