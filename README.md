@@ -188,7 +188,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ---
 
 ### 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/license/ecl-2-0).
 
 ---
 
