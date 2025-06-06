@@ -192,4 +192,4 @@ This project is licensed under the [MIT License](https://opensource.org/license/
 
 ---
 
-© 2025 Developed by Nadeesha Medagama – All Rights Reserved.
+© 2025 Developed by [Nadeesha Medagama](nadeeshamedagama@gmail.com) – All Rights Reserved.
