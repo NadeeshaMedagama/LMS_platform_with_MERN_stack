@@ -46,6 +46,7 @@ import {
 } from 'lucide-react';
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 const CourseDetail = () => {
     const [activeTab, setActiveTab] = useState('overview');
@@ -900,83 +901,7 @@ const CourseDetail = () => {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-white pt-16 pb-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
-                        <div className="col-span-2">
-                            <div className="flex items-center mb-6">
-                                <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-2 mr-3">
-                                    <GraduationCap size={24} className="text-white"/>
-                                </div>
-                                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
-                                    NovaLearn
-                                </span>
-                            </div>
-                            <p className="text-gray-400 mb-6">
-                                Empowering learners worldwide with high-quality, accessible education.
-                            </p>
-                            <div className="flex space-x-4">
-                                <button className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
-                                    <Facebook size={18} />
-                                </button>
-                                <button className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
-                                    <Twitter size={18} />
-                                </button>
-                                <button className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
-                                    <Linkedin size={18} />
-                                </button>
-                                <button className="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
-                                    <Instagram size={18} />
-                                </button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Company</h3>
-                            <ul className="space-y-3">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Press</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Resources</h3>
-                            <ul className="space-y-3">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Webinars</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Docs</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-                            <ul className="space-y-3">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cookies</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Copyright</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Policies</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                        <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                            © 2024 NovaLearn. All rights reserved.
-                        </p>
-                        <div className="flex space-x-6">
-                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</a>
-                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a>
-                            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookies</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };
