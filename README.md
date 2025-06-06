@@ -1,6 +1,6 @@
-# 📚 MERN LMS Platform
+# 📚 NovaLearn – Modern MERN LMS Platform
 
-A robust and fully responsive **Learning Management System (LMS)** built with the **MERN stack** (MongoDB, Express.js, React.js, Node.js). The platform supports course management, student enrollment, user authentication, instructor dashboards, and more.
+**NonaLearn** is a fully responsive and feature-rich **Learning Management System (LMS)** developed using the **MERN stack** (MongoDB, Express.js, React.js, Node.js). It empowers admins, instructors, and learners to create, manage, and experience digital learning efficiently.
 
 > 🚀 [Live Site](https://LIVE_SITE_URL.com) | 🎥 [Demo Video](https://DEMO_VIDEO_URL.com)
 
