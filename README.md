@@ -1,3 +1,110 @@
+# 📚 MERN LMS Platform
+
+A robust and fully responsive **Learning Management System (LMS)** built with the **MERN stack** (MongoDB, Express.js, React.js, Node.js). The platform supports course management, student enrollment, user authentication, instructor dashboards, and more.
+
+> 🚀 [Live Site](https://LIVE_SITE_URL.com) | 🎥 [Demo Video](https://DEMO_VIDEO_URL.com)
+
+---
+
+## 📌 Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Screenshots](#screenshots)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## ✅ Features
+
+-  Secure authentication (JWT-based)
+-  Role-based access (Admin, Instructor, Student)
+-  Course creation & management
+-  Enrollment & progress tracking
+-  Video lectures integration
+-  Assignments & quizzes
+-  Discussion board
+-  Admin dashboard with analytics
+-  Fully responsive (mobile-first)
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**
+- React.js
+- Redux Toolkit
+- Axios
+- React Router DOM
+- Tailwind CSS / Bootstrap (choose one)
+
+**Backend**
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT for Authentication
+- Multer (file uploads)
+
+**Deployment**
+- Frontend: Vercel / Netlify
+- Backend: Render / Railway / Heroku
+- Database: MongoDB Atlas
+
+---
+
+
+## ⚙️ Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/yourusername/mern-lms-platform.git
+cd mern-lms-platform
+```
+---
+
+### Frontend Setup
+
+```bash
+cd client
+npm install
+npm run start
+```
+---
+
+### Backend Setup
+
+```bash
+cd server
+npm install
+npm run dev
+```
+---
+
+## 🔐 Environment Variables
+
+```bash
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+CLOUDINARY_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+---
+
+## ▶️ Usage
+- Admin: Manage users, courses, and view analytics.
+- Instructor: Create, edit, and manage their own courses.
+- Student: Browse, enroll, and complete courses.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +175,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+---
+
+## 🔗 Useful Links
+
+-  [Live Site](https://LIVE_SITE_URL.com)
+-  [Demo Video](https://DEMO_VIDEO_URL.com)
+-  Documentation Coming soon...
+-  [Report Issues](https://github.com/NadeeshaMedagama/LMS_platform_with_MERN_stack.git)
+
+---
+
+### 📄 License
+This project is licensed under the MIT License.
+
+---
+
+© 2025 Developed by Nadeesha Medagama – All Rights Reserved.
