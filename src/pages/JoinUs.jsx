@@ -202,8 +202,30 @@ const JoinUs = () => {
         setIsSubmitting(true);
 
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            const formDataToSend = new FormData();
+            formDataToSend.append('fullName', formData.fullName);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('phone', formData.phone);
+            formDataToSend.append('address', formData.address);
+            formDataToSend.append('userRole', formData.userRole);
+            formDataToSend.append('message', formData.message);
+            formDataToSend.append('agreeToTerms', formData.agreeToTerms);
+            formDataToSend.append('newsletter', formData.newsletter);
+
+            if (formData.cv) {
+                formDataToSend.append('cv', formData.cv);
+            }
+
+            // Send to your backend API
+            const response = await fetch('http://localhost:5000/api/applicants', {
+                method: 'POST',
+                body: formDataToSend,
+                // headers not needed when using FormData
+            });
+
+            if (!response.ok) {
+                throw new Error('Submission failed');
+            }
 
             setSubmitStatus('success');
             setFormData({
