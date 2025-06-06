@@ -20,6 +20,7 @@ const Login = () => {
         password: '',
         rememberMe: false
     });
+    const [loginForm, setLoginForm] = useState({ email: '', password: '' });
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
@@ -63,7 +64,9 @@ const Login = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         if (!validateForm()) {
             return;
         }
@@ -73,15 +76,30 @@ const Login = () => {
 
         try {
             // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            const response = await fetch('http://localhost:5000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
 
-            // Simulate login validation
-            if (formData.email === 'admin@lms.com' && formData.password === 'password123') {
-                console.log('Login successful:', formData);
-                alert('Login successful! Welcome back to the LMS platform.');
-            } else {
-                setLoginError('Invalid email or password. Please try again.');
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Login failed');
             }
+
+            localStorage.setItem('user', JSON.stringify(data.user));
+
+            console.log('Login successful:', data.user);
+            alert(`Login successful! Welcome back, ${data.user.firstName}.`);
+
+            navigate('/');
+
         } catch (error) {
             console.error('Login failed:', error);
             setLoginError('An error occurred. Please try again later.');
