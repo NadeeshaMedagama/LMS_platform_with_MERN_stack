@@ -340,6 +340,7 @@ const Home = () => {
                         Join our community of learners and unlock your potential with our comprehensive courses
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <Link to="/courses">
                         <button
                             className="group bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center">
                             <BookOpen size={24} className="mr-3"/>
@@ -347,6 +348,7 @@ const Home = () => {
                             <ArrowRight size={20}
                                         className="ml-2 transform group-hover:translate-x-1 transition-transform"/>
                         </button>
+                        </Link>
                         <div className="flex items-center text-white">
                             <CheckCircle size={20} className="mr-2 text-green-400"/>
                             <span className="font-medium">Free 7-day trial</span>
