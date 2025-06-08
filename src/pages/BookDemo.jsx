@@ -222,7 +222,7 @@ const BookDemo = () => {
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                        <div className="flex items-center justify-center mb-8">
+                        <div className="flex items-center justify-center mb-8 mt-12">
                             <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-4 mr-4">
                                 <Video size={40} className="text-white" />
                             </div>
