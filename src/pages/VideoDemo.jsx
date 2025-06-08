@@ -321,9 +321,11 @@ const VideoDemo = () => {
                             <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-6 text-center">
                                 <h3 className="text-xl font-bold text-white mb-3">Ready to Get Started?</h3>
                                 <p className="text-blue-100 text-sm mb-6">Join thousands of learners already transforming their careers</p>
+                                <Link to ="/courses">
                                 <button className="w-full bg-white text-blue-600 py-3 px-6 rounded-full font-semibold hover:bg-blue-50 transition-colors">
                                     Explore Courses
                                 </button>
+                                </Link>
                                 <div className="mt-4 text-blue-200 text-xs">
                                     <CheckCircle size={14} className="inline mr-1" />
                                     Free 7-day trial • No credit card required
