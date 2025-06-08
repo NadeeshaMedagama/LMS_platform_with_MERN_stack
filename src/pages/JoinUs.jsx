@@ -949,10 +949,12 @@ const JoinUs = () => {
                         Your next chapter starts here.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Link to="/apply-now">
                         <button
                             className="bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 hover:shadow-lg transition-all">
                             Apply Now
                         </button>
+                        </Link>
                         <button
                             className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:bg-opacity-10 hover:shadow-lg transition-all">
                             Contact Admissions
