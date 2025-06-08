@@ -955,10 +955,12 @@ const JoinUs = () => {
                             Apply Now
                         </button>
                         </Link>
+                        <Link to="/contact-admission">
                         <button
                             className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:bg-opacity-10 hover:shadow-lg transition-all">
                             Contact Admissions
                         </button>
+                        </Link>
                     </div>
                 </div>
             </div>
