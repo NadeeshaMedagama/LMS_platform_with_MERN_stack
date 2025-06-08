@@ -35,6 +35,7 @@ import {
     EyeOff
 } from 'lucide-react';
 import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 const ApplyNow = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -1195,60 +1196,7 @@ const ApplyNow = () => {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-white py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                        <div>
-                            <div className="flex items-center mb-4">
-                                <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-2 mr-3">
-                                    <GraduationCap size={24} className="text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold">NovaLearn</h3>
-                            </div>
-                            <p className="text-gray-400 text-sm">
-                                Empowering the next generation of learners with cutting-edge education.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-semibold mb-4">Programs</h4>
-                            <ul className="space-y-2">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">All Courses</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Professional Certificates</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Degree Programs</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">For Organizations</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-semibold mb-4">Resources</h4>
-                            <ul className="space-y-2">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Events</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Scholarships</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-semibold mb-4">Connect</h4>
-                            <ul className="space-y-2">
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Instagram</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                        <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                            © 2023 NovaLearn. All rights reserved.
-                        </p>
-                        <div className="flex space-x-6">
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };
