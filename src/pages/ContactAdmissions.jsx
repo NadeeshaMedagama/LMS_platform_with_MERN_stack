@@ -771,7 +771,7 @@ const ContactAdmissions = () => {
                         Take the first step toward your educational goals. Our admissions team is here to help you every step of the way.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                        <a href="#" className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
+                        <a href="./apply-now" className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
                             Apply Now <ArrowRight size={20} className="ml-2"/>
                         </a>
                         <a href="#" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:bg-opacity-10 transition-colors flex items-center justify-center">
