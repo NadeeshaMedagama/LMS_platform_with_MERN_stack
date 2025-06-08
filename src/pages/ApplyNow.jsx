@@ -34,6 +34,7 @@ import {
     Eye,
     EyeOff
 } from 'lucide-react';
+import Header from "../components/layout/Header";
 
 const ApplyNow = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -364,23 +365,10 @@ const ApplyNow = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
             {/* Header */}
-            <div className="bg-white shadow-sm border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-2 mr-3">
-                                <GraduationCap size={24} className="text-white" />
-                            </div>
-                            <h1 className="text-2xl font-bold text-gray-900">NovaLearn Application</h1>
-                        </div>
-                        <div className="text-sm text-gray-600">
-                            Step {currentStep} of {totalSteps}
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div className="bg-white border-b border-gray-200">
+            <Header />
+
+            <div className="bg-white border-b border-gray-200 mt-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-medium text-gray-700">Application Progress</span>
