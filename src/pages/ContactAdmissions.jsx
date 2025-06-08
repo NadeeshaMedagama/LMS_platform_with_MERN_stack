@@ -32,6 +32,7 @@ import {
     ExternalLink
 } from 'lucide-react';
 import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
 
 const ContactAdmissions = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -280,30 +281,10 @@ const ContactAdmissions = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
             {/* Header */}
-            <header className="bg-white shadow-lg sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center py-4">
-                        <div className="flex items-center">
-                            <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-2 mr-3">
-                                <GraduationCap size={32} className="text-white" />
-                            </div>
-                            <div>
-                                <h1 className="text-2xl font-bold text-gray-900">NovaLearn</h1>
-                                <p className="text-sm text-gray-600">Contact Admissions</p>
-                            </div>
-                        </div>
-                        <nav className="hidden md:flex space-x-8">
-                            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Home</a>
-                            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Programs</a>
-                            <a href="#" className="text-blue-600 font-medium">Admissions</a>
-                            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">About</a>
-                        </nav>
-                    </div>
-                </div>
-            </header>
+            <Header />
 
             {/* Hero Section */}
-            <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-700 py-20">
+            <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-700 py-20 mt-10">
                 <div className="absolute inset-0 bg-black opacity-10"></div>
                 <div className="absolute top-10 left-10 w-40 h-40 bg-white rounded-full opacity-10 animate-pulse"></div>
                 <div className="absolute bottom-10 right-20 w-32 h-32 bg-yellow-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
