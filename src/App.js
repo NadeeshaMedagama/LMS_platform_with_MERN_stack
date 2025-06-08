@@ -14,7 +14,6 @@ import Dashboard from './pages/Dashboard';
 import CoursesPage from './pages/CoursesPage';
 import CourseDetail from './pages/CourseDetail';
 import CreateCourse from './pages/CreateCourse';
-import PrivateRoute from './components/common/PrivateRoute';
 import AdminRoute from './components/common/AdminRoute';
 import InstructorRoute from './components/common/InstructorRoute';
 import WhyNovaLearn from './pages/WhyNovaLearn';
@@ -24,6 +23,7 @@ import Resources from './pages/Resources';
 import JoinUs from "./pages/JoinUs";
 import MyProfile from "./pages/MyProfile";
 import SettingsPage from "./pages/SettingsPage";
+import VideoDemo from "./pages/VideoDemo";
 
 function App() {
   return (
@@ -45,6 +45,7 @@ function App() {
                 <Route path="/myprofile" element={<MyProfile />} />
                 <Route path="/settings-page" element={<SettingsPage />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/video-demo" element={<VideoDemo />} />
                 <Route path="/courses-details" element={<CourseDetail />} />
 
                 {/* Private Routes */}
