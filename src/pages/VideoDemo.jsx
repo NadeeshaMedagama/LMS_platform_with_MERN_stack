@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
     Play,
     Pause,
@@ -22,6 +22,11 @@ const VideoDemo = () => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
+    const [videoLoaded, setVideoLoaded] = useState(false);
+    const videoRef = useRef(null);
+
+    // CHANGE THIS PATH TO YOUR LOCAL VIDEO FILE
+    const VIDEO_PATH = "/videos/demo-video.mp4"; // Put your video in public/videos/ folder
 
     // Demo video details
     const videoData = {
@@ -64,46 +69,63 @@ const VideoDemo = () => {
 
     useEffect(() => {
         setIsVisible(true);
-        // Simulate video duration
-        setDuration(225); // 3:45 in seconds
     }, []);
 
+    const handleVideoLoad = () => {
+        if (videoRef.current) {
+            setDuration(videoRef.current.duration);
+            setVideoLoaded(true);
+        }
+    };
+
+    const handleTimeUpdate = () => {
+        if (videoRef.current) {
+            setCurrentTime(videoRef.current.currentTime);
+        }
+    };
+
+    const handleVideoEnd = () => {
+        setIsPlaying(false);
+        setCurrentTime(0);
+        if (videoRef.current) {
+            videoRef.current.currentTime = 0;
+        }
+    };
+
     const togglePlay = () => {
-        setIsPlaying(!isPlaying);
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
     };
 
     const toggleMute = () => {
-        setIsMuted(!isMuted);
+        if (videoRef.current) {
+            videoRef.current.muted = !isMuted;
+            setIsMuted(!isMuted);
+        }
     };
 
     const formatTime = (seconds) => {
+        if (isNaN(seconds)) return "0:00";
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     };
 
     const handleProgressClick = (e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const percent = (e.clientX - rect.left) / rect.width;
-        const newTime = percent * duration;
-        setCurrentTime(newTime);
-    };
-
-    // Simulate video progress
-    useEffect(() => {
-        if (isPlaying) {
-            const interval = setInterval(() => {
-                setCurrentTime(prev => {
-                    if (prev >= duration) {
-                        setIsPlaying(false);
-                        return 0;
-                    }
-                    return prev + 1;
-                });
-            }, 1000);
-            return () => clearInterval(interval);
+        if (videoRef.current && duration > 0) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            const newTime = percent * duration;
+            videoRef.current.currentTime = newTime;
+            setCurrentTime(newTime);
         }
-    }, [isPlaying, duration]);
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
@@ -133,31 +155,45 @@ const VideoDemo = () => {
                         <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             {/* Video Container */}
                             <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-                                {/* Video Placeholder */}
-                                <div className="aspect-video bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center relative">
-                                    {/* Background Pattern */}
-                                    <div className="absolute inset-0 opacity-10">
-                                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-                                        <div className="grid grid-cols-12 gap-2 h-full p-8">
-                                            {Array.from({length: 48}).map((_, i) => (
-                                                <div key={i} className="bg-white/5 rounded animate-pulse" style={{animationDelay: `${i * 0.1}s`}}></div>
-                                            ))}
+                                {/* Video Element */}
+                                <div className="aspect-video bg-black relative">
+                                    <video
+                                        ref={videoRef}
+                                        className="w-full h-full object-cover"
+                                        src={VIDEO_PATH}
+                                        onLoadedMetadata={handleVideoLoad}
+                                        onTimeUpdate={handleTimeUpdate}
+                                        onEnded={handleVideoEnd}
+                                        onClick={togglePlay}
+                                        preload="metadata"
+                                    />
+
+                                    {/* Fallback Background Pattern (when video not loaded) */}
+                                    {!videoLoaded && (
+                                        <div className="absolute inset-0 opacity-10">
+                                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+                                            <div className="grid grid-cols-12 gap-2 h-full p-8">
+                                                {Array.from({length: 48}).map((_, i) => (
+                                                    <div key={i} className="bg-white/5 rounded animate-pulse" style={{animationDelay: `${i * 0.1}s`}}></div>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
 
                                     {/* Play Button Overlay */}
                                     {!isPlaying && (
                                         <button
                                             onClick={togglePlay}
-                                            className="group relative z-10 bg-white/90 backdrop-blur-sm rounded-full p-6 hover:bg-white transition-all duration-300 transform hover:scale-110 shadow-2xl"
+                                            className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300"
                                         >
-                                            <Play size={48} className="text-blue-600 ml-1" />
-                                            <div className="absolute inset-0 rounded-full bg-blue-600/20 scale-0 group-hover:scale-150 transition-all duration-500"></div>
+                                            <div className="bg-white/90 backdrop-blur-sm rounded-full p-6 hover:bg-white transition-all duration-300 transform hover:scale-110 shadow-2xl">
+                                                <Play size={48} className="text-blue-600 ml-1" />
+                                            </div>
                                         </button>
                                     )}
 
-                                    {/* Video Content Simulation */}
-                                    {isPlaying && (
+                                    {/* Loading indicator */}
+                                    {!videoLoaded && (
                                         <div className="absolute inset-0 flex items-center justify-center">
                                             <div className="text-center text-white">
                                                 <div className="mb-4">
@@ -165,8 +201,8 @@ const VideoDemo = () => {
                                                         <GraduationCap size={64} className="text-white" />
                                                     </div>
                                                 </div>
-                                                <h3 className="text-2xl font-bold mb-2">Welcome to NovaLearn</h3>
-                                                <p className="text-blue-200">Your learning journey starts here...</p>
+                                                <h3 className="text-2xl font-bold mb-2">Loading Video...</h3>
+                                                <p className="text-blue-200">Please wait while we prepare your demo</p>
                                             </div>
                                         </div>
                                     )}
@@ -182,7 +218,7 @@ const VideoDemo = () => {
                                         >
                                             <div
                                                 className="h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transition-all duration-300"
-                                                style={{ width: `${(currentTime / duration) * 100}%` }}
+                                                style={{ width: duration > 0 ? `${(currentTime / duration) * 100}%` : '0%' }}
                                             ></div>
                                         </div>
                                     </div>
@@ -221,7 +257,7 @@ const VideoDemo = () => {
                                 <div className="flex items-center space-x-6 text-gray-600 mb-4">
                                     <div className="flex items-center">
                                         <Clock size={16} className="mr-1" />
-                                        <span>{videoData.duration}</span>
+                                        <span>{duration > 0 ? formatTime(duration) : videoData.duration}</span>
                                     </div>
                                     <div className="flex items-center">
                                         <Users size={16} className="mr-1" />
