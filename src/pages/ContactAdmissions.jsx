@@ -31,6 +31,7 @@ import {
     Download,
     ExternalLink
 } from 'lucide-react';
+import Footer from "../components/layout/Footer";
 
 const ContactAdmissions = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -800,64 +801,7 @@ const ContactAdmissions = () => {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-white py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">NovaLearn</h3>
-                            <p className="text-gray-400 text-sm">
-                                Empowering students through innovative education since 2010.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                            <ul className="space-y-2 text-gray-400">
-                                <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Programs</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Admissions</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Tuition</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Resources</h3>
-                            <ul className="space-y-2 text-gray-400">
-                                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Events</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-                            <ul className="space-y-2 text-gray-400">
-                                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Accessibility</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Sitemap</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                        <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                            © 2023 NovaLearn. All rights reserved.
-                        </p>
-                        <div className="flex space-x-6">
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                <Facebook size={20}/>
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                <Twitter size={20}/>
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                <Linkedin size={20}/>
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                <Instagram size={20}/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };
