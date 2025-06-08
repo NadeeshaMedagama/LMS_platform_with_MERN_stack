@@ -24,6 +24,7 @@ import JoinUs from "./pages/JoinUs";
 import MyProfile from "./pages/MyProfile";
 import SettingsPage from "./pages/SettingsPage";
 import VideoDemo from "./pages/VideoDemo";
+import BookDemo from "./pages/BookDemo";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
                 <Route path="/settings-page" element={<SettingsPage />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/video-demo" element={<VideoDemo />} />
+                <Route path="/book-demo" element={<BookDemo />} />
                 <Route path="/courses-details" element={<CourseDetail />} />
 
                 {/* Private Routes */}
