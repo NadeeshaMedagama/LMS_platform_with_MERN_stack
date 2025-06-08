@@ -210,6 +210,7 @@ const Home = () => {
                                 interactive projects, and industry-recognized certifications.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
+                                <Link to="/resources">
                                 <button
                                     onClick={handleStartLearning}
                                     className="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center">
@@ -218,11 +219,14 @@ const Home = () => {
                                     <ArrowRight size={20}
                                                 className="ml-2 transform group-hover:translate-x-1 transition-transform"/>
                                 </button>
+                                </Link>
+                                <Link to = "video-demo">
                                 <button
                                     className="group border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center">
                                     <Play size={20} className="mr-2"/>
                                     <span>Watch Demo</span>
                                 </button>
+                                </Link>
                             </div>
                         </div>
                         <div
