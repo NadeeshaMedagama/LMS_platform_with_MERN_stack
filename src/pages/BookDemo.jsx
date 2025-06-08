@@ -25,6 +25,7 @@ import {
     ChevronRight
 } from 'lucide-react';
 import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
 
 const BookDemo = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -209,27 +210,7 @@ const BookDemo = () => {
     return (
         <div className="min-h-screen bg-white">
             {/* Header */}
-            <div className="bg-white shadow-sm border-b">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <button
-                                onClick={() => window.history.back()}
-                                className="flex items-center text-gray-600 hover:text-blue-600 transition-colors mr-6"
-                            >
-                                <ArrowLeft size={20} className="mr-2" />
-                                Back
-                            </button>
-                            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
-                                NovaLearn
-                            </div>
-                        </div>
-                        <div className="text-sm text-gray-500">
-                            Step {currentStep} of 3
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Header />
 
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-700 to-indigo-800">
