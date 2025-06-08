@@ -15,6 +15,7 @@ import {
     TrendingUp,
     GraduationCap
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Footer from "../components/layout/Footer";
 
 const VideoDemo = () => {
@@ -134,10 +135,12 @@ const VideoDemo = () => {
             <div className="bg-white shadow-sm border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div className="flex items-center justify-between">
+                        <Link to = "/">
                         <button className="flex items-center text-blue-600 hover:text-blue-700 transition-colors">
                             <ArrowLeft size={20} className="mr-2" />
                             <span className="font-medium">Back to Home</span>
                         </button>
+                        </Link>
                         <div className="flex items-center space-x-4">
                             <div className="flex items-center text-gray-600">
                                 <GraduationCap size={24} className="mr-2 text-blue-600" />
