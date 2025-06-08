@@ -144,7 +144,9 @@ const VideoDemo = () => {
                         <div className="flex items-center space-x-4">
                             <div className="flex items-center text-gray-600">
                                 <GraduationCap size={24} className="mr-2 text-blue-600" />
-                                <span className="font-bold text-xl text-gray-900">NovaLearn</span>
+                                <span className="font-bold text-xl text-gray-900 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
+                                    NovaLearn
+                                </span>
                             </div>
                         </div>
                     </div>
