@@ -25,6 +25,7 @@ import MyProfile from "./pages/MyProfile";
 import SettingsPage from "./pages/SettingsPage";
 import VideoDemo from "./pages/VideoDemo";
 import BookDemo from "./pages/BookDemo";
+import ApplyNow from "./pages/ApplyNow";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/video-demo" element={<VideoDemo />} />
                 <Route path="/book-demo" element={<BookDemo />} />
+                <Route path="/apply-now" element={<ApplyNow />} />
                 <Route path="/courses-details" element={<CourseDetail />} />
 
                 {/* Private Routes */}
