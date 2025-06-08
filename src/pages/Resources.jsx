@@ -758,11 +758,14 @@ const Resources = () => {
                                         className="ml-2 transform group-hover:translate-x-1 transition-transform"/>
                         </button>
 
+                        <Link to = "/book-demo">
                         <button
                             className="group border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center">
                             <Calendar size={20} className="mr-2"/>
                             <span>Book a Demo</span>
                         </button>
+                        </Link>
+
                     </div>
 
                     <div className="flex justify-center items-center mt-8 space-x-8 text-blue-200">
