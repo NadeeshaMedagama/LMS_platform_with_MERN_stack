@@ -15,6 +15,7 @@ import {
     TrendingUp,
     GraduationCap
 } from 'lucide-react';
+import Footer from "../components/layout/Footer";
 
 const VideoDemo = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -327,6 +328,7 @@ const VideoDemo = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
