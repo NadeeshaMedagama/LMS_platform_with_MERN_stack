@@ -21,9 +21,6 @@ import Footer from "../components/layout/Footer";
 
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeDropdown, setActiveDropdown] = useState(null);
-    const [userDropdownOpen, setUserDropdownOpen] = useState(false);
     const navigate = useNavigate();
 
     const [user, setUser] = useState({
@@ -41,10 +38,6 @@ const Home = () => {
     // Navigation functions
     const navigateToLogin = () => {
         navigate('/login');
-    };
-
-    const navigateToRegister = () => {
-        navigate('/joinus');
     };
 
     const handleStartLearning = () => {
@@ -66,59 +59,6 @@ const Home = () => {
             }
         }
     };
-
-    const navigationItems = [
-        {
-            title: "Why NovaLearn",
-            to: "/why-novalearn",
-            dropdown: [
-                { title: "Our Mission", to: "#mission" },
-                { title: "Success Stories", to: "#stories" },
-                { title: "Expert Instructors", to: "#instructors" },
-                { title: "Learning Methodology", to: "#methodology" }
-            ]
-        },
-        {
-            title: "Courses",
-            to: "/courses",
-            dropdown: [
-                { title: "Online Courses", to: "#courses" },
-                { title: "Live Sessions", to: "#live-sessions" },
-                { title: "Certifications", to: "#certifications" },
-                { title: "Corporate Training", to: "#corporate" }
-            ]
-        },
-        {
-            title: "Use Cases",
-            to: "/usecases",
-            dropdown: [
-                { title: "Career Advancement", to: "#career" },
-                { title: "Skill Development", to: "#skills" },
-                { title: "Team Training", to: "#team" },
-                { title: "Academic Support", to: "#academic" }
-            ]
-        },
-        {
-            title: "Pricing",
-            to: "/pricing",
-            dropdown: [
-                { title: "Individual Plans", to: "#individual" },
-                { title: "Team Plans", to: "#team-plans" },
-                { title: "Enterprise", to: "#enterprise" },
-                { title: "Free Trial", to: "#trial" }
-            ]
-        },
-        {
-            title: "Resources",
-            to: "/resources",
-            dropdown: [
-                { title: "Blog", to: "#blog" },
-                { title: "Help Center", to: "#help" },
-                { title: "Community", to: "#community" },
-                { title: "API Documentation", to: "#api" }
-            ]
-        }
-    ];
 
     const features = [
         {
