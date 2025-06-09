@@ -215,8 +215,19 @@ const ContactAdmissions = () => {
         setIsSubmitting(true);
 
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
             setSubmitStatus('success');
 
             // Reset form on success
@@ -231,6 +242,7 @@ const ContactAdmissions = () => {
                 agreeToTerms: false
             });
         } catch (error) {
+            console.error('Error:', error);
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
