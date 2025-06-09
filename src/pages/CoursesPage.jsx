@@ -37,6 +37,45 @@ const CoursesPage = () => {
     const [showFilters, setShowFilters] = useState(false);
     const [filteredCourses, setFilteredCourses] = useState([]);
 
+    const [email, setEmail] = useState('');
+    const [subscriptionStatus, setSubscriptionStatus] = useState(null);
+    const [isSubscribing, setIsSubscribing] = useState(false);
+
+    const handleSubscribe = async (e) => {
+        e.preventDefault();
+
+        if (!email || !email.includes('@')) {
+            setSubscriptionStatus({ type: 'error', message: 'Please enter a valid email address' });
+            return;
+        }
+
+        setIsSubscribing(true);
+        setSubscriptionStatus(null);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Subscription failed');
+            }
+
+            setSubscriptionStatus({ type: 'success', message: data.message });
+            setEmail('');
+        } catch (error) {
+            setSubscriptionStatus({ type: 'error', message: error.message });
+        } finally {
+            setIsSubscribing(false);
+        }
+    };
+
     // Mock courses data
     const courses = [
         {
@@ -565,17 +604,34 @@ const CoursesPage = () => {
                     <p className="text-xl text-blue-100 mb-8">
                         Get notified when we launch new courses and exclusive offers
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                    {/* Subscription Status Messages */}
+                    {subscriptionStatus && (
+                        <div className={`mb-4 p-3 rounded-lg ${
+                            subscriptionStatus.type === 'success'
+                                ? 'bg-green-100 text-green-800'
+                                : 'bg-red-100 text-red-800'
+                        }`}>
+                            {subscriptionStatus.message}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
                         <input
                             type="email"
                             placeholder="Enter your email"
                             className="flex-1 px-6 py-3 rounded-full focus:ring-4 focus:ring-blue-200 focus:outline-none"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
                         <button
-                            className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
-                            Subscribe
+                            type="submit"
+                            disabled={isSubscribing}
+                            className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
+                            {isSubscribing ? 'Subscribing...' : 'Subscribe'}
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
 
