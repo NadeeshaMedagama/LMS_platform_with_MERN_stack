@@ -258,8 +258,26 @@ const ApplyNow = () => {
         setSubmitStatus(null);
 
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            const formDataToSend = {
+                ...formData,
+                // Convert file objects to base64 strings if needed
+                profilePhoto: formData.profilePhoto ? await toBase64(formData.profilePhoto) : null,
+                cv: formData.cv ? await toBase64(formData.cv) : null
+            };
+
+            const response = await fetch('http://localhost:5000/api/applications', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataToSend),
+            });
+
+            if (!response.ok) {
+                throw new Error('Submission failed');
+            }
+
+            const data = await response.json();
 
             setSubmitStatus('success');
 
@@ -299,6 +317,14 @@ const ApplyNow = () => {
             setIsSubmitting(false);
         }
     };
+
+    // Helper function to convert files to base64
+    const toBase64 = (file) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
 
     if (submitStatus === 'success') {
         return (
