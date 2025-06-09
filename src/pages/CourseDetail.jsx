@@ -54,72 +54,7 @@ const CourseDetail = () => {
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [progress, setProgress] = useState(0);
     const [showFullDescription, setShowFullDescription] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeDropdown, setActiveDropdown] = useState(null);
     const [isWishlisted, setIsWishlisted] = useState(false);
-    const navigate = useNavigate();
-    const [user, setUser] = useState(null);
-
-    const navigateToLogin = () => {
-        navigate('/login');
-    };
-
-    const navigateToRegister = () => {
-        navigate('/joinus');
-    };
-
-    const navigationItems = [
-        {
-            title: "Why NovaLearn",
-            href: "/why-novalearn",
-            dropdown: [
-                { title: "Our Mission", href: "#mission" },
-                { title: "Success Stories", href: "#stories" },
-                { title: "Expert Instructors", href: "#instructors" },
-                { title: "Learning Methodology", href: "#methodology" }
-            ]
-        },
-        {
-            title: "Courses",
-            href: "/courses",
-            dropdown: [
-                { title: "Online Courses", href: "#courses" },
-                { title: "Live Sessions", href: "#live-sessions" },
-                { title: "Certifications", href: "#certifications" },
-                { title: "Corporate Training", href: "#corporate" }
-            ]
-        },
-        {
-            title: "Use Cases",
-            href: "/usecases",
-            dropdown: [
-                { title: "Career Advancement", href: "#career" },
-                { title: "Skill Development", href: "#skills" },
-                { title: "Team Training", href: "#team" },
-                { title: "Academic Support", href: "#academic" }
-            ]
-        },
-        {
-            title: "Pricing",
-            href: "/pricing",
-            dropdown: [
-                { title: "Individual Plans", href: "#individual" },
-                { title: "Team Plans", href: "#team-plans" },
-                { title: "Enterprise", href: "#enterprise" },
-                { title: "Free Trial", href: "#trial" }
-            ]
-        },
-        {
-            title: "Resources",
-            href: "/resources",
-            dropdown: [
-                { title: "Blog", href: "#blog" },
-                { title: "Help Center", href: "#help" },
-                { title: "Community", href: "#community" },
-                { title: "API Documentation", href: "#api" }
-            ]
-        }
-    ];
 
     // Mock course data
     const course = {
