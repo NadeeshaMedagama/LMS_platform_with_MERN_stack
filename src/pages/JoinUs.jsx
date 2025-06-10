@@ -157,7 +157,7 @@ const JoinUs = () => {
             }
 
             // Send to your backend API
-            const response = await fetch('http://localhost:5000/api/applicants', {
+            const response = await fetch('/api/applicants', {
                 method: 'POST',
                 body: formDataToSend,
                 // headers not needed when using FormData
@@ -249,7 +249,8 @@ const JoinUs = () => {
                             We already have your application on file. Our team will get back to you soon.
                         </p>
                         <button
-                            onClick={() => {setSubmitStatus(null);
+                            onClick={() => {
+                                setSubmitStatus(null);
                                 setIsSubmitting(false);
                         }}
                             className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
@@ -292,7 +293,8 @@ const JoinUs = () => {
                             </ul>
                         </div>
                         <button
-                            onClick={() => {setSubmitStatus(null);
+                            onClick={() => {
+                                setSubmitStatus(null);
                                 setIsSubmitting(false);
                             }}
                             className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
