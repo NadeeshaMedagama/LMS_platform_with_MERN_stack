@@ -180,8 +180,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## 🔗 Useful Links
 
--  [Live Site](https://LIVE_SITE_URL.com)
--  [Demo Video](https://DEMO_VIDEO_URL.com)
+-  [Live Site](https://nova-learn-lms-nadeeshamedagama.netlify.app/)
+-  [Demo Video](https://nova-learn-lms-platform-demo-video.netlify.app/)
 -  Documentation Coming soon...
 -  [Report Issues](https://github.com/NadeeshaMedagama/LMS_platform_with_MERN_stack.git)
 
