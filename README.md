@@ -2,7 +2,7 @@
 
 **NonaLearn** is a fully responsive and feature-rich **Learning Management System (LMS)** developed using the **MERN stack** (MongoDB, Express.js, React.js, Node.js). It empowers admins, instructors, and learners to create, manage, and experience digital learning efficiently.
 
-> 🚀 [Live Site](https://LIVE_SITE_URL.com) | 🎥 [Demo Video](https://nova-learn-lms-platform-with-mern.netlify.app/)
+> 🚀 [Live Site](https://nova-learn-lms-nadeeshamedagama.netlify.app/) | 🎥 [Demo Video](https://nova-learn-lms-platform-with-mern.netlify.app/)
 
 ---
 
